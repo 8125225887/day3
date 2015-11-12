@@ -1,0 +1,130 @@
+<html>
+<head>
+  <style>
+  #text{
+    font-family: verdana,Geneva,sans-serif;
+    text-shadow: 1px 1px #000;
+    text-decoration-color: black ;
+    height: 40px;
+    width: 300px;
+  }
+  #button{
+     height: 50px;
+     width: 270px;
+
+  }
+  #body{
+    background-color: ;
+  }
+  #table2{
+    margin: 0 auto;
+    margin-top: -170px;
+    margin-right:150px;
+    width: 500px;
+   }
+   th{
+     border-radius: 5px;
+     border-width: thin;
+     background-color: #eee;
+     font-family:sans-serif;
+     font-size: 12px;
+     position: static;
+     padding: 10px;
+     height: 30px;
+     width: 700px;
+   }
+
+   </style>
+</head>
+  <body id="body">
+  <script type="text/javascript">
+
+
+    function Filter() {
+      var name=document.getElementById("text").value;
+      var tbody=document.getElementById("people");
+        var rows = tbody.rows,
+            rlen = rows.length,
+            arr = new Array(),
+            i, j, cells, clen;
+
+        for (i = 0; i < rlen; i++) {
+            cells = rows[i].cells;
+            clen = cells.length;
+            arr[i] = new Array();
+            for (j = 0; j < clen; j++) {
+                arr[i][j] = cells[j].innerHTML;
+            }
+        }
+
+     for(i = 0; i < rlen; i++){
+       cells=rows[i].cells;
+       clen=cells.length;
+       for(j = 0;j < clen ; j++){
+
+           if(arr[i][j]==name){
+               tbody.rows[i].style.background="#eee";
+               var table=document.getElementById("table2");
+               var row=table.insertRow(1);
+               for(j = 0; j < clen; j++){
+                  row.insertCell(j).innerHTML=arr[i][j];
+                }
+              }
+           }
+         }
+       }
+</script>
+<table id="table">
+  <tr><td>Enter the Name or Number:-<td><input id="text" type="text"></tr>
+  </table>
+  <button onclick="Filter()" id="button">Click Here</button><br><br><br><br>
+
+    <table border='1' width="30%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody id="people">
+            <tr>
+                <td>Raju</td>
+                <td>sss</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>Mamata</td>
+                <td>Ssss</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>Arjun</td>
+                <td>kkkk</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>Santosh</td>
+                <td>llll</td>
+                <td>26</td>
+            </tr>
+            <tr>
+                <td>Najim</td>
+                <td>pppp</td>
+                <td>27</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="table2" border="1">
+    <tr>
+      <th id="th1" class="th" >Name</th>
+      <th id="th2" class="th" >Surname</th>
+      <th id="th3" class="th" >Age</th>
+    </tr>
+
+  </table>
+
+</body>
+
+</html>

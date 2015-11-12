@@ -1,0 +1,111 @@
+<html>
+<head>
+  <style>
+  #body{
+    background-color: #eaa;
+  }
+  #button{
+     height: 40px;
+     width: 550px;
+  }
+  #font{
+    font-weight: bold;
+    font-variant: normal;
+    background-color: white;
+    font-size: 20px;
+    border-top-left-radius :10px;
+    border-top-right-radius: 10px;
+  }
+  .input{
+    font-family: verdana,Geneva,sans-serif;
+    text-shadow: 1px 1px #000;
+    text-decoration-color: black ;
+    height: 40px;
+    width: 300px;
+  }
+  .margin{
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+   }
+   .th{
+     border-radius: 5px;
+     border-width: thin;
+     background-color: #eee;
+     font-family:sans-serif;
+     font-size: 12px;
+     position: static;
+     padding: 10px;
+     height: 30px;
+     width: 700px;
+   }
+   #table2{
+     border-width: medium;
+     background-color: #eff;
+   }
+   #table1{
+     width: 600px;
+     margin: 0 auto;
+     background-color: #eee;
+     border-spacing: 5px;
+     border-radius: 10px;
+   }
+
+
+  </style>
+</head>
+<body id="body">
+  <table id="table1">
+  <tr>  <thead><center><font id="font">Employee Details<font></center><thead><tr>
+ <tr><td>
+  <tr><td align="right">Enter Employee Number:-<td><input type="text" id="input1" class="input">
+  <tr><td align="right">Enter Employee Name:-<td><input type="text" id="input2" class="input">
+  <tr><td align="right">Enter Employee Salary:-<td><input type="text" id="input3" class="input">
+    <tr><td aligin="center" colspan="2"><button id="button" onclick="myFunction()">Click Here</button>
+</table>
+  <div class="margin">
+  <table id="table2" border="1">
+  <tr>
+    <th id="th1" class="th" >Employee Number</th>
+    <th id="th2" class="th" >Employee Name</th>
+    <th id="th3" class="th" >Employee Salary</th>
+  </tr>
+
+  </table>
+</div>
+<script>
+
+
+
+function myFunction() {
+    var table = document.getElementById("table2");
+    var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+
+    var a =document.getElementById("input1").value;
+    var b =document.getElementById("input2").value;
+    var c=document.getElementById("input3").value;
+    if(a==" "||b==" "||c==" "){
+      window.alert("fields must not be empty");
+    }
+      else if(a==NaN){
+        window.alert("emp number should be number");
+      }
+     else if(c==NaN){
+       window.alert("emp salary should be number");
+     }
+    else {
+      cell1.innerHTML=a;
+      cell2.innerHTML=b;
+      cell3.innerHTML=c;
+    }
+    document.getElementById("input1").value= " ";
+    document.getElementById("input2").value= " ";
+    document.getElementById("input3").value= " ";
+    }
+</script>
+
+</body>
+</html>
